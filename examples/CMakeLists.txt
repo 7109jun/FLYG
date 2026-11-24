@@ -1,0 +1,66 @@
+add_executable(flyg_example_memory_basic memory_basic.cpp)
+target_link_libraries(flyg_example_memory_basic PRIVATE flyg flyg_dev_options)
+set_target_properties(flyg_example_memory_basic PROPERTIES CXX_EXTENSIONS OFF)
+
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_memory_basic COMMAND flyg_example_memory_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_memory_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
+
+add_executable(flyg_example_math_basic math_basic.cpp)
+target_link_libraries(flyg_example_math_basic PRIVATE flyg flyg_dev_options)
+set_target_properties(flyg_example_math_basic PROPERTIES CXX_EXTENSIONS OFF)
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_math_basic COMMAND flyg_example_math_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_math_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
+
+add_executable(flyg_example_system_basic system_basic.cpp)
+target_link_libraries(flyg_example_system_basic PRIVATE flyg flyg_dev_options Threads::Threads)
+set_target_properties(flyg_example_system_basic PROPERTIES CXX_EXTENSIONS OFF)
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_system_basic COMMAND flyg_example_system_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_system_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
+
+add_executable(flyg_example_data_basic data_basic.cpp)
+target_link_libraries(flyg_example_data_basic PRIVATE flyg flyg_dev_options)
+set_target_properties(flyg_example_data_basic PROPERTIES CXX_EXTENSIONS OFF)
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_data_basic COMMAND flyg_example_data_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_data_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
+
+add_executable(flyg_example_net_basic net_basic.cpp)
+target_link_libraries(flyg_example_net_basic PRIVATE flyg flyg_dev_options)
+set_target_properties(flyg_example_net_basic PROPERTIES CXX_EXTENSIONS OFF)
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_net_basic COMMAND flyg_example_net_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_net_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
+
+add_executable(flyg_example_graphics_basic graphics_basic.cpp)
+target_link_libraries(flyg_example_graphics_basic PRIVATE flyg flyg_dev_options)
+set_target_properties(flyg_example_graphics_basic PROPERTIES CXX_EXTENSIONS OFF)
+if(FLYG_BUILD_TESTS)
+    add_test(NAME example_graphics_basic COMMAND flyg_example_graphics_basic)
+    if(WIN32 AND CMAKE_CROSSCOMPILING)
+        set_tests_properties(example_graphics_basic PROPERTIES
+            ENVIRONMENT "WINEDEBUG=-all;WINEPREFIX=${CMAKE_BINARY_DIR}/wineprefix")
+    endif()
+endif()
